@@ -23,7 +23,7 @@ function list_data_confirmation(){
 	});
 
 	var destino = localStorage.getItem("DESTINO_EHTL").split(" ");
-	jQuery("#local_reserva").html(destino[0]);
+	jQuery("#local_reserva").html(localStorage.getItem("DESTINO_EHTL"));
 	jQuery(".hotel_reserva").html('<strong>'+order[6]+'</strong>');
 	jQuery("#checkin_reserva").html(moment(localStorage.getItem("CHECKIN_EHTL"), 'DD-MM-YYYY').format("DD [de] MMMM [de] YYYY"));
 
