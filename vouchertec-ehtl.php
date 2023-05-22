@@ -14,7 +14,7 @@ GitHub Plugin URI: https://github.com/TravelTec/bookinghotels
 
 Description: Voucher Tec - Integração de hotéis E-htl é um plugin desenvolvido para agências e operadoras de turismo que precisam tratar diárias de hospedagem de fornecedores, com integração ao fornecedor E-htl.
 
-Version: 1.0.1
+Version: 1.0.0
 
 Author: Travel Tec
 
@@ -333,7 +333,7 @@ function shortcode_motor_reserva(){
 		.custom-search-input-2{background-color:#fff;-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;border-radius:5px;margin-top:15px;box-shadow: 0 0 0 6px rgba(255,255,255,.25);}
 		@media (max-width: 991px){.custom-search-input-2{background:none;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
 		}
-		.custom-search-input-2 input{font-size: .875rem !important;border:0;height:50px;padding-left:15px;border-right:1px solid #d2d8dd;font-weight:500}
+		.custom-search-input-2 input{font-family: \'Montserrat\' !important;font-size: .875rem !important;border:0;height:50px;padding-left:15px;border-right:1px solid #d2d8dd;font-weight:500}
 		@media (max-width: 991px){.custom-search-input-2 input{border:none}
 		}
 		.custom-search-input-2 input:focus{box-shadow:none;border-right:1px solid #d2d8dd}
@@ -389,7 +389,7 @@ function shortcode_motor_reserva(){
 		.daterangepicker td.active, .daterangepicker td.active:hover {background-color:'.(empty(get_option( 'cor_ehtl' )) ? '#000000' : get_option( 'cor_ehtl' )).';border-color:transparent;color:#fff;}
 		.daterangepicker td.available:hover, .daterangepicker th.available:hover{background-color:'.(empty(get_option( 'cor_ehtl' )) ? '#000000' : get_option( 'cor_ehtl' )).'99;color:#fff;border-radius:40px}
 		.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{background-color:#c82333;border-color:#c82333;}
-		.ripple{position:relative;overflow:hidden;transform:translate3d(0,0,0)}
+		.ripple{font-family:\'Montserrat\';position:relative;overflow:hidden;transform:translate3d(0,0,0)}
 		.ripple:after{content:"";display:block;position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none;background-image:radial-gradient(circle,#000 10%,transparent 10.01%);background-repeat:no-repeat;background-position:50%;transform:scale(10,10);opacity:0;transition:transform .5s,opacity 1s}
 		.ripple:active:after{transform:scale(0,0);opacity:.2;transition:0s}
 		.btn-primary{color:#fff;background-color:#DC3545;border-color:#DC3545;}
@@ -475,6 +475,7 @@ function shortcode_motor_reserva(){
 		#side-menu .contact a:hover, #side-menu .contact .fa:hover{color: #28ab13 !important;}
 		#side-menu .contact a:focus, #side-menu .contact .fa:focus{color: #28ab13 !important;}
 		.dados{position:absolute;}
+		.dados ul li{margin-top: 0 !important;}
 		table td, table th{padding:9px;font-family: \'Montserrat\';font-weight: 600;}
 		table caption+thead tr:first-child td, table caption+thead tr:first-child th, table colgroup+thead tr:first-child td, table colgroup+thead tr:first-child th, table thead:first-child tr:first-child td, table thead:first-child tr:first-child th{
 			border-top:none !important;
@@ -491,8 +492,8 @@ function shortcode_motor_reserva(){
 		.applyBtn{background-color:'.(empty(get_option( 'cor_ehtl' )) ? '#000000' : get_option( 'cor_ehtl' )).' !important;border-color:'.(empty(get_option( 'cor_ehtl' )) ? '#000000' : get_option( 'cor_ehtl' )).' !important}
 		.applyBtn:hover{background-color:'.(empty(get_option( 'cor_ehtl' )) ? '#000000' : get_option( 'cor_ehtl' )).'bd !important}
 		.daterangepicker .drp-selected{display:none !important;}
-		.btnAddRoom{font-size: 13px;font-weight: 700;color: '.(empty(get_option( 'cor_ehtl' )) ? '#000000' : get_option( 'cor_ehtl' )).';padding:6px 0}
-		.btnAddRoom:hover{color: '.(empty(get_option( 'cor_ehtl' )) ? '#000000' : get_option( 'cor_ehtl' )).'ee;}
+		.btnAddRoom{font-size: 13px;font-weight: 700;color: '.(empty(get_option( 'cor_ehtl' )) ? '#000000' : get_option( 'cor_ehtl' )).';padding:6px 0;background-color:#fff;font-family: \'Montserrat\'}
+		.btnAddRoom:hover{color: '.(empty(get_option( 'cor_ehtl' )) ? '#000000' : get_option( 'cor_ehtl' )).'ee;background-color:#fff;}
 		.btnApplyRoom{background-color: '.(empty(get_option( 'cor_ehtl' )) ? '#000000' : get_option( 'cor_ehtl' )).';color: #fff;font-size: 14px;font-weight: 600;border-radius: 40px;padding: 5px 30px;float: right;}
 		.btnApplyRoom:hover{background-color: '.(empty(get_option( 'cor_ehtl' )) ? '#000000' : get_option( 'cor_ehtl' )).'d4;}
 		.ripple{background-color:'.(empty(get_option( 'cor_botao_ehtl' )) ? '#000000' : get_option( 'cor_botao_ehtl' )).' !important;border:transparent !important}
@@ -536,7 +537,7 @@ function shortcode_motor_reserva(){
 								<div class="custom-select-form">
 									<input type="text" class="form-control" id="field_name_ehtl" autocomplete="off" placeholder="Informe a cidade ou hotel..." onfocus="this.value=\'\'">
 									<div class="dados">
-										<ul style="padding:0"></ul>
+										<ul style="padding:0;margin: 0;"></ul>
 									</div>
 								</div>
 								<i class="fa fa-map-marker"></i>
@@ -3505,7 +3506,7 @@ function shortcode_detalhe_resultados_reserva(){
 
 	$retorno .= '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>';
 	$retorno .= '<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js" crossorigin="anonymous"></script>';	
-	$retorno .= '<script src="<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>	';	
+	$retorno .= '<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>	';	
 	$retorno .= '<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment-with-locales.min.js"></script>'; 
 
 	return $retorno;
@@ -4453,7 +4454,7 @@ function shortcode_confirm_reserva(){
 		            }
 		        </style>
 	       	</head>
-	        <table align="center" border="0" cellpadding="0" class="larguraTabel" cellspacing="0" style="border-collapse:collapse;border: none;width: 640px;" >
+	        <table align="center" border="0" cellpadding="0" class="larguraTabel" cellspacing="0" style="border-collapse:collapse;border: none;width: 640px;margin: 0 auto;" >
 	            <tbody style="background-color: '.(empty(get_option( 'cor_ehtl' )) ? '#000000' : get_option( 'cor_ehtl' )).';">
 	                <tr>';
 		                if(!empty($logo)){
@@ -4463,7 +4464,7 @@ function shortcode_confirm_reserva(){
 	                </tr>
 	            </tbody>
 	        </table>
-	        <table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none" >
+	        <table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none;margin: 0 auto" >
 	            <tbody style="background-color: #ddd;">
 	                <tr>
 	                    <td align="center" height="" style="word-break: break-word;background-color: #fff;text-align: justify;border: none;" valign="top"  >
@@ -4505,7 +4506,7 @@ function shortcode_confirm_reserva(){
 	                     </tr>
 	            </tbody>
 	        </table>
-	        <table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none" >
+	        <table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none;margin: 0 auto" >
 	            <tbody style="background-color: #ddd;">
 	                     <tr style="border-bottom: 1px solid #f0f0f0;">
 	                    <td align="center" height="" style="word-break: break-word;background-color: #fff;text-align: justify;border: none;" valign="top"  >
@@ -4559,10 +4560,10 @@ function shortcode_confirm_reserva(){
 	            </tbody>
 	        </table>
 
-	        <table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none" >
+	        <table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none;margin: 0 auto" >
 	            <tbody style="background-color: #ddd;">
 	                     <tr style="border-bottom: 1px solid #f0f0f0;">
-	                    <td align="center" height="" style="font-family:\'Montserrat\';word-break: break-word;background-color: #07976c;text-align: justify;border: none;color: #fff;padding: 20px;" valign="top"  >
+	                    <td align="center" height="" style="font-family:\'Montserrat\';word-break: break-word;background-color: '.(empty(get_option( 'cor_ehtl' )) ? '#000000' : get_option( 'cor_ehtl' )).';text-align: justify;border: none;color: #fff;padding: 20px;" valign="top"  >
 	                    		<p style="margin-bottom:5px;font-weight:600;font-size:14px;" id="desc_room_reserva"> </p>
 	                    		<p style="margin-bottom:5px;font-weight:600;font-size:14px;" id="desc_taxa_reserva"></p>
 	                    		<p style="margin:5px 0;font-weight:600;font-size:19px;">Total <span style="float:right;" id="price_total"> </span></p>
@@ -4588,7 +4589,7 @@ function shortcode_confirm_reserva(){
 	            </tbody>
 	        </table>
 
-	        <table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none" >
+	        <table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none;margin: 0 auto" >
 	            <tbody style="background-color: #ddd;"> 
 	                     <tr>
 	                    <td align="center" height="" style="word-break: break-word;background-color: #fff;text-align: justify;border: none;padding: 0px 14px;" valign="top"  >
@@ -4600,7 +4601,7 @@ function shortcode_confirm_reserva(){
 	                     </tr>
 	            </tbody>
 	        </table>
-	        <table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none" >
+	        <table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none;margin: 0 auto" >
 	            <tbody style="background-color: #ddd;">
 	                     <tr style="border-bottom: 1px solid #f0f0f0;">
 	                    <td align="center" height="" style="word-break: break-word;background-color: #fff;text-align: left;border: none;" valign="top"  >
@@ -4654,7 +4655,7 @@ function shortcode_confirm_reserva(){
 	            </tbody>
 	        </table>
 
-	        <table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none" >
+	        <table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none;margin: 0 auto" >
 	            <tbody style="background-color: #ddd;"> 
 	                     <tr>
 	                    <td align="center" height="" style="word-break: break-word;background-color: #fff;text-align: justify;border: none;padding: 0px 14px;" valign="top"  >
@@ -4668,7 +4669,7 @@ function shortcode_confirm_reserva(){
 	        </table>';
 
 	        if(get_option( 'type_reserva_ehtl' ) == 2){
-		        $retorno .= '<table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none" id="payment_card">
+		        $retorno .= '<table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none;margin: 0 auto" id="payment_card">
 		            <tbody style="background-color: #ddd;">
 		                     <tr style="border-bottom: 1px solid #f0f0f0;">
 		                    <td align="center" height="" style="word-break: break-word;background-color: #fff;text-align: left;border: none;" valign="top"  >
@@ -4723,7 +4724,7 @@ function shortcode_confirm_reserva(){
 		        </table>';
 		    }else{
 
-		        $retorno .= '<table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none" id="payment_agency">
+		        $retorno .= '<table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none;margin: 0 auto" id="payment_agency">
 		            <tbody style="background-color: #ddd;">
 		                     <tr style=" ">
 		                    <td align="center" height="" style="word-break: break-word;background-color: #fff;text-align: left;border: none;" valign="top"  >
@@ -4737,7 +4738,7 @@ function shortcode_confirm_reserva(){
 		        </table>';
 	       }
 
-	        $retorno .= '<table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none" >
+	        $retorno .= '<table align="center" border="0" cellpadding="0" class="larguraTabel" style="border-collapse:collapse;border: none;margin: 0 auto" >
 	            <tbody style="background-color: #ddd;">
 	                     <tr style="border-top: 1px solid #f0f0f0;">
 	                    <td align="center" height="" style="word-break: break-word;background-color: #fff;text-align: left;border: none;" valign="top"  >
@@ -5483,3 +5484,4 @@ function save_product_ehtl(){
 			update_option('chave_licenca_ehtl', $licenca);
 		}
     }
+    
