@@ -82,7 +82,7 @@ function save_data_licenca(){
 
 	var licenca = jQuery("#chave_licenca_ehtl").val();
 
-	if(jQuery("#chave_licenca_ehtl").val() == "" || jQuery("#chave_licenca_ehtl").val() != "EC98562EDKSOWK7895SE"){
+	if(jQuery("#chave_licenca_ehtl").val() == "" || (jQuery("#chave_licenca_ehtl").val() != "EC98562EDKSOWK7895SE" || jQuery("#chave_licenca_ehtl").val() != "2MLWUUCSVNIPECMZCLUQ" || jQuery("#chave_licenca_ehtl").val() != "1DFMXQOUSYPPCKZFEVJI" || jQuery("#chave_licenca_ehtl").val() != "0DNITTPKWEVBUDLMDWCE" || jQuery("#chave_licenca_ehtl").val() != "4AHWMPHHTPMTBLVSVQEL")){
 
         swal({
             title: "É necessário informar uma licença válida para utilizar o plugin.",
