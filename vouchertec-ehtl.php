@@ -4172,91 +4172,92 @@ function shortcode_checkout_reserva(){
 								<select class="form-control" id="installments">
 
 								</select>
+							</div>'; 
+
+							$retorno .= '<div class="address"> 
+								<div class="row">
+									<div class="col-lg-12 col-12">
+										<h5>Dados de faturamento</h5>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6 col-12">
+										<label>CEP</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+											<i class="fa fa-map"></i>
+											</div>
+											<input type="text" class="form-control" placeholder="" aria-label="Insira seu CEP" aria-describedby="basic-addon1" id="cep" autocomplete="off">
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-lg-9 col-12">
+										<label>Endereço</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+											<i class="fa fa-house-user"></i>
+											</div>
+											<input type="text" class="form-control" placeholder="" aria-label="Insira seu endereço" id="endereco" aria-describedby="basic-addon1" autocomplete="off">
+										</div>
+									</div>
+
+									<div class="col-lg-3 col-12">
+										<label>Número</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+											#
+											</div>
+											<input type="text" class="form-control" placeholder="" aria-label="Insira o número" id="numero" aria-describedby="basic-addon1" autocomplete="off">
+										</div>
+									</div>
+
+									<div class="col-lg-12 col-12">
+										<label>Complemento</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+											<i class="fa fa-info"></i>
+											</div>
+											<input type="text" class="form-control" placeholder="" aria-label="Insira o complemento" id="complemento" aria-describedby="basic-addon1" autocomplete="off">
+										</div>
+									</div>
+
+									<div class="col-lg-4 col-12">
+										<label>Bairro</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+											<i class="fa fa-warehouse"></i>
+											</div>
+											<input type="text" class="form-control" placeholder="" aria-label="Insira seu bairro" id="bairro" aria-describedby="basic-addon1" autocomplete="off">
+										</div>
+									</div>
+
+									<div class="col-lg-4 col-12">
+										<label>Cidade</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+											<i class="fa fa-building"></i>
+											</div>
+											<input type="text" class="form-control" placeholder="" aria-label="Insira a cidade" id="cidade" aria-describedby="basic-addon1" autocomplete="off">
+										</div>
+									</div>
+
+									<div class="col-lg-4 col-12">
+										<label>Estado</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+											<i class="fa fa-flag"></i>
+											</div>
+											<input type="text" class="form-control" placeholder="" aria-label="Insira o estado" id="estado" aria-describedby="basic-addon1" autocomplete="off">
+										</div>
+									</div>
+								</div> 
 							</div>';
+						
 						}
 
-						$retorno .= '<div class="address"> 
-							<div class="row">
-								<div class="col-lg-12 col-12">
-									<h5>Dados de faturamento</h5>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-6 col-12">
-									<label>CEP</label>
-									<div class="input-group mb-4">
-									  	<div class="input-group-prepend">
-									    	<i class="fa fa-map"></i>
-									  	</div>
-									  	<input type="text" class="form-control" placeholder="" aria-label="Insira seu CEP" aria-describedby="basic-addon1" id="cep" autocomplete="off">
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-lg-9 col-12">
-									<label>Endereço</label>
-									<div class="input-group mb-4">
-									  	<div class="input-group-prepend">
-									    	<i class="fa fa-house-user"></i>
-									  	</div>
-									  	<input type="text" class="form-control" placeholder="" aria-label="Insira seu endereço" id="endereco" aria-describedby="basic-addon1" autocomplete="off">
-									</div>
-								</div>
-
-								<div class="col-lg-3 col-12">
-									<label>Número</label>
-									<div class="input-group mb-4">
-									  	<div class="input-group-prepend">
-									    	#
-									  	</div>
-									  	<input type="text" class="form-control" placeholder="" aria-label="Insira o número" id="numero" aria-describedby="basic-addon1" autocomplete="off">
-									</div>
-								</div>
-
-								<div class="col-lg-12 col-12">
-									<label>Complemento</label>
-									<div class="input-group mb-4">
-									  	<div class="input-group-prepend">
-									    	<i class="fa fa-info"></i>
-									  	</div>
-									  	<input type="text" class="form-control" placeholder="" aria-label="Insira o complemento" id="complemento" aria-describedby="basic-addon1" autocomplete="off">
-									</div>
-								</div>
-
-								<div class="col-lg-4 col-12">
-									<label>Bairro</label>
-									<div class="input-group mb-4">
-									  	<div class="input-group-prepend">
-									    	<i class="fa fa-warehouse"></i>
-									  	</div>
-									  	<input type="text" class="form-control" placeholder="" aria-label="Insira seu bairro" id="bairro" aria-describedby="basic-addon1" autocomplete="off">
-									</div>
-								</div>
-
-								<div class="col-lg-4 col-12">
-									<label>Cidade</label>
-									<div class="input-group mb-4">
-									  	<div class="input-group-prepend">
-									    	<i class="fa fa-building"></i>
-									  	</div>
-									  	<input type="text" class="form-control" placeholder="" aria-label="Insira a cidade" id="cidade" aria-describedby="basic-addon1" autocomplete="off">
-									</div>
-								</div>
-
-								<div class="col-lg-4 col-12">
-									<label>Estado</label>
-									<div class="input-group mb-4">
-									  	<div class="input-group-prepend">
-									    	<i class="fa fa-flag"></i>
-									  	</div>
-									  	<input type="text" class="form-control" placeholder="" aria-label="Insira o estado" id="estado" aria-describedby="basic-addon1" autocomplete="off">
-									</div>
-								</div>
-							</div> 
-						</div>
-
-						<a onclick="send_order('.get_option('type_reserva_ehtl').')"><button class="btn btnSelect show-mobile">Finalizar '.(get_option('type_reserva_ehtl') == 2 ? 'reserva' : 'solicitação').'</button></a>
+						$retorno .= '<a onclick="send_order('.get_option('type_reserva_ehtl').')"><button class="btn btnSelect show-mobile">Finalizar '.(get_option('type_reserva_ehtl') == 2 ? 'reserva' : 'solicitação').'</button></a>
 
 					</div>
 				</div>
