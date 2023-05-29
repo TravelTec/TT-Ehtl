@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 	Plugin URI: https://github.com/TravelTec/bookinghotels
 	GitHub Plugin URI: https://github.com/TravelTec/bookinghotels 
 	Description: Voucher Tec - Integração de hotéis E-htl é um plugin desenvolvido para agências e operadoras de turismo que precisam tratar diárias de hospedagem de fornecedores, com integração ao fornecedor E-htl.
-	Version: 1.1.0
+	Version: 1.1.1
 	Author: Travel Tec
 	Author URI: https://traveltec.com.br
 	License: GPLv2 
@@ -4744,71 +4744,61 @@ function shortcode_confirm_reserva(){
 
 global $wpdb;
 
-$check_page_exist = get_page_by_title('Hospedagens', 'OBJECT', 'page');  
+$prefix = $wpdb->prefix;
 
-if(empty($check_page_exist)) {
+$server = '162.240.67.31'; 
+$user = DB_USER;  
+$database = DB_NAME; 
+$pass = DB_PASSWORD;
 
-    $wpdb->insert('wp_posts', array( 
-        'comment_status' => 'close', 
-        'ping_status'    => 'close', 
-        'post_author'    => 1, 
-        'post_title'     => ucwords('Hospedagens'), 
-        'post_name'      => 'hotels', 
-        'post_status'    => 'publish', 
-        'post_content'   => '[TTBOOKING_RESULTADOS_RESERVA]', 
-        'post_type'      => 'page' 
-    ));
+function conectar_mysql_wp($server, $user, $pass, $database){    
+	try{ 
+		$conn = new \PDO("mysql:host=$server;dbname=$database", $user, $pass); 
+		return $conn; 
+	}catch (\PDOException $e){  
+		echo $e->getMessage(); 
+	} 
+}  
 
-}
+$connSite = conectar_mysql_wp($server, $user, $pass, $database); 
 
-$check_page_exist = get_page_by_title('Detalhe da Hospedagem', 'OBJECT', 'page');  
-
-if(empty($check_page_exist)) {
-
-    $wpdb->insert('wp_posts', array( 
-        'comment_status' => 'close', 
-        'ping_status'    => 'close', 
-        'post_author'    => 1, 
-        'post_title'     => ucwords('Detalhe da Hospedagem'), 
-        'post_name'      => 'hotels-detail', 
-        'post_status'    => 'publish', 
-        'post_content'   => '[TTBOOKING_DETALHE_RESULTADOS_RESERVA]', 
-        'post_type'      => 'page' 
-    ));
+$check_page_exist = $wpdb->get_results( "SELECT * FROM ".$prefix."posts WHERE post_title = 'Hospedagens'");
+if(empty($check_page_exist) || $check_page_exist == null) {
+	
+	$date = date("Y-m-d H:i:s");
+	
+	$sqlInsertPost = $connSite->prepare("INSERT INTO ".$table_prefix."posts (post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, post_name, post_type) VALUES (1, '".$date."', '".$date."', '[TTBOOKING_RESULTADOS_RESERVA]', 'Hospedagens', '', 'publish', 'hotels', 'page')");
+	$sqlInsertPost->execute(); 
 
 }
 
-$check_page_exist = get_page_by_title('Finalizar Pedido', 'OBJECT', 'page');  
-
+$check_page_exist = $wpdb->get_results( "SELECT * FROM ".$prefix."posts WHERE post_title = 'Detalhe da Hospedagem'");
 if(empty($check_page_exist)) {
-
-    $wpdb->insert('wp_posts', array( 
-        'comment_status' => 'close', 
-        'ping_status'    => 'close', 
-        'post_author'    => 1, 
-        'post_title'     => ucwords('Finalizar pedido'), 
-        'post_name'      => 'order-hotels', 
-        'post_status'    => 'publish', 
-        'post_content'   => '[TTBOOKING_CHECKOUT_RESERVA]', 
-        'post_type'      => 'page' 
-    ));
+	
+	$date = date("Y-m-d H:i:s");
+	
+	$sqlInsertPost = $connSite->prepare("INSERT INTO ".$table_prefix."posts (post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, post_name, post_type) VALUES (1, '".$date."', '".$date."', '[TTBOOKING_DETALHE_RESULTADOS_RESERVA]', 'Detalhe da Hospedagem', '', 'publish', 'hotels-detail', 'page')");
+	$sqlInsertPost->execute(); 
 
 }
 
-$check_page_exist = get_page_by_title('Confirmação Pedido', 'OBJECT', 'page');  
-
+$check_page_exist = $wpdb->get_results( "SELECT * FROM ".$prefix."posts WHERE post_title = 'Finalizar Pedido'");
 if(empty($check_page_exist)) {
+	
+	$date = date("Y-m-d H:i:s");
+	
+	$sqlInsertPost = $connSite->prepare("INSERT INTO ".$table_prefix."posts (post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, post_name, post_type) VALUES (1, '".$date."', '".$date."', '[TTBOOKING_CHECKOUT_RESERVA]', 'Finalizar pedido', '', 'publish', 'order-hotels', 'page')");
+	$sqlInsertPost->execute(); 
 
-    $wpdb->insert('wp_posts', array( 
-        'comment_status' => 'close', 
-        'ping_status'    => 'close', 
-        'post_author'    => 1, 
-        'post_title'     => ucwords('Confirmação Pedido'), 
-        'post_name'      => 'confirm-order', 
-        'post_status'    => 'publish', 
-        'post_content'   => '[TTBOOKING_CONFIRM_RESERVA]', 
-        'post_type'      => 'page' 
-    ));
+}
+
+$check_page_exist = $wpdb->get_results( "SELECT * FROM ".$prefix."posts WHERE post_title = 'Confirmação Pedido'");
+if(empty($check_page_exist)) {
+	
+	$date = date("Y-m-d H:i:s");
+	
+	$sqlInsertPost = $connSite->prepare("INSERT INTO ".$table_prefix."posts (post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, post_name, post_type) VALUES (1, '".$date."', '".$date."', '[TTBOOKING_CONFIRM_RESERVA]', 'Confirmação Pedido', '', 'publish', 'confirm-order', 'page')");
+	$sqlInsertPost->execute(); 
 
 }
 
