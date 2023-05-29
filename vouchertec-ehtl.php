@@ -14,7 +14,7 @@ GitHub Plugin URI: https://github.com/TravelTec/bookinghotels
 
 Description: Voucher Tec - Integração de hotéis E-htl é um plugin desenvolvido para agências e operadoras de turismo que precisam tratar diárias de hospedagem de fornecedores, com integração ao fornecedor E-htl.
 
-Version: 1.0.4
+Version: 1.0.5
 
 Author: Travel Tec
 
@@ -5448,40 +5448,16 @@ function save_product_ehtl(){
 		$type_reserva   = $_POST['type_reserva'];
 		$licenca        = $_POST['licenca'];
 
-		if(empty(get_option( 'user_ehtl' ))){
-			add_option('user_ehtl', $user_ehtl);
-		}else{
-			update_option('user_ehtl', $user_ehtl);
-		}
+		update_option('user_ehtl', $user_ehtl);
 
-		if(empty(get_option( 'pass_ehtl' ))){
-			add_option('pass_ehtl', $pass_ehtl);
-		}else{
-			update_option('pass_ehtl', $pass_ehtl);
-		}
+		update_option('pass_ehtl', $pass_ehtl);
 
-		if(empty(get_option( 'cor_ehtl' ))){
-			add_option('cor_ehtl', $cor_ehtl);
-		}else{
-			update_option('cor_ehtl', $cor_ehtl);
-		}
+		update_option('cor_ehtl', $cor_ehtl);
 
-		if(empty(get_option( 'cor_botao_ehtl' ))){
-			add_option('cor_botao_ehtl', $cor_botao_ehtl);
-		}else{
-			update_option('cor_botao_ehtl', $cor_botao_ehtl);
-		}
+		update_option('cor_botao_ehtl', $cor_botao_ehtl);
 
-		if(empty(get_option( 'type_reserva_ehtl' ))){
-			add_option('type_reserva_ehtl', $type_reserva);
-		}else{
-			update_option('type_reserva_ehtl', $type_reserva);
-		}
+		update_option('type_reserva_ehtl', $type_reserva);
 
-		if(empty(get_option( 'chave_licenca_ehtl' ))){
-			add_option('chave_licenca_ehtl', $licenca);
-		}else{
-			update_option('chave_licenca_ehtl', $licenca);
-		}
+		update_option('chave_licenca_ehtl', $licenca);
     }
     
