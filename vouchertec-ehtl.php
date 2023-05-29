@@ -1,36 +1,17 @@
-<?php  
-
+<?php
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
-
-
-
-/*
-
-
-
-Plugin Name: Voucher Tec - Integração de hotéis E-htl
-
-Plugin URI: https://github.com/TravelTec/bookinghotels
-
-GitHub Plugin URI: https://github.com/TravelTec/bookinghotels 
-
-Description: Voucher Tec - Integração de hotéis E-htl é um plugin desenvolvido para agências e operadoras de turismo que precisam tratar diárias de hospedagem de fornecedores, com integração ao fornecedor E-htl.
-
-Version: 1.0.5
-
-Author: Travel Tec
-
-Author URI: https://traveltec.com.br
-
-License: GPLv2
-
-
-
+/* 
+	Plugin Name: Voucher Tec - Integração de hotéis E-htl
+	Plugin URI: https://github.com/TravelTec/bookinghotels
+	GitHub Plugin URI: https://github.com/TravelTec/bookinghotels 
+	Description: Voucher Tec - Integração de hotéis E-htl é um plugin desenvolvido para agências e operadoras de turismo que precisam tratar diárias de hospedagem de fornecedores, com integração ao fornecedor E-htl.
+	Version: 1.0.6
+	Author: Travel Tec
+	Author URI: https://traveltec.com.br
+	License: GPLv2 
 */ 
-session_start(); 
 
 require 'plugin-update-checker-4.10/plugin-update-checker.php';
-require_once plugin_dir_path(__FILE__) . 'includes/results-functions.php'; 
 
 add_action( 'admin_init', 'ehtl_update_checker_setting' );  
 
