@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 	Plugin URI: https://github.com/TravelTec/bookinghotels
 	GitHub Plugin URI: https://github.com/TravelTec/bookinghotels 
 	Description: Voucher Tec - Integração de hotéis E-htl é um plugin desenvolvido para agências e operadoras de turismo que precisam tratar diárias de hospedagem de fornecedores, com integração ao fornecedor E-htl.
-	Version: 1.1.2
+	Version: 1.1.4
 	Author: Travel Tec
 	Author URI: https://traveltec.com.br
 	License: GPLv2 
