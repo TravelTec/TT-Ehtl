@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 	Plugin URI: https://github.com/TravelTec/bookinghotels
 	GitHub Plugin URI: https://github.com/TravelTec/bookinghotels 
 	Description: Voucher Tec - Integração de hotéis E-htl é um plugin desenvolvido para agências e operadoras de turismo que precisam tratar diárias de hospedagem de fornecedores, com integração ao fornecedor E-htl.
-	Version: 1.1.3
+	Version: 1.1.2
 	Author: Travel Tec
 	Author URI: https://traveltec.com.br
 	License: GPLv2 
@@ -3550,7 +3550,7 @@ function shortcode_detalhe_resultados_reserva(){
 		<div class="row">
 
 			<div id="imgPrincipal" class="col-lg-6 col-12 imgPrincipal ">
-				<button class="btn gallery" onclick="openModal();currentSlide(1)">Ver galeria</button>
+				<button class="btn gallery show-mobile" onclick="openModal();currentSlide(1)">Ver galeria</button>
 				<div class="row-is-loading"></div>
 			</div>  
 			<div class="col-lg-6 col-12 show-desktop">
@@ -3586,7 +3586,7 @@ function shortcode_detalhe_resultados_reserva(){
 			</div>
 			<div class="col-lg-3 col-12 infoRoom">
 
-				<span id="mealHotel" class="regim row-is-loading" style="height: 28px;width:124px;"> </span>
+				<span id="mealHotel" class="regim row-is-loading" style="height: 28px;width:140px;"> </span>
 				<p id="detailRoom" class="detailRoom row-is-loading" style="height:115px;">
 					<strong id="nameRoom" class="nameRoom" style="text-transform:capitalize"> </strong>
 					<br>
