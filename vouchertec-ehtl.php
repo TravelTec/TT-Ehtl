@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 	Plugin URI: https://github.com/TravelTec/bookinghotels
 	GitHub Plugin URI: https://github.com/TravelTec/bookinghotels 
 	Description: Voucher Tec - Integração de hotéis E-htl é um plugin desenvolvido para agências e operadoras de turismo que precisam tratar diárias de hospedagem de fornecedores, com integração ao fornecedor E-htl.
-	Version: 1.1.2
+	Version: 1.1.3
 	Author: Travel Tec
 	Author URI: https://traveltec.com.br
 	License: GPLv2 
@@ -41,16 +41,6 @@ function enqueue_form_ehtl() {
       'https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css'
     );
 
-    wp_enqueue_style( 
-      'carousel-style-ehtl', 
-      'https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css'
-    );
-
-    wp_enqueue_style( 
-      'carousel-principal-style-ehtl', 
-      'https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css'
-    );
-
     wp_enqueue_script( 
         'mask-script-ehtl',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js',
@@ -66,12 +56,6 @@ function enqueue_form_ehtl() {
     wp_enqueue_script( 
         'flatpickr-script-ehtl',
         'https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js',
-        array( 'jquery' )
-    );
-
-    wp_enqueue_script( 
-        'carousel-script-ehtl',
-        'https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js',
         array( 'jquery' )
     );
 
@@ -121,6 +105,22 @@ function enqueue_form_ehtl() {
 
     if($_SERVER['REQUEST_URI'] == '/hotels-detail/'){
 
+		wp_enqueue_style( 
+		  'carousel-style-ehtl', 
+		  'https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css'
+		);
+
+		wp_enqueue_style( 
+		  'carousel-principal-style-ehtl', 
+		  'https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css'
+		);
+
+		wp_enqueue_script( 
+			'carousel-script-ehtl',
+			'https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js',
+			array( 'jquery' )
+		);
+
 	    wp_enqueue_script( 
 	        'scripts-details-ehtl',
 	        plugin_dir_url( __FILE__ ) . 'includes/assets/js/scripts-details.js?v='.date("dmYHis"),
@@ -140,22 +140,26 @@ function enqueue_form_ehtl() {
 
 	}
 
-    wp_enqueue_script( 
-        'scripts-checkout-ehtl',
-        plugin_dir_url( __FILE__ ) . 'includes/assets/js/scripts-checkout.js?v='.date("dmYHis"),
-        array( 'jquery' ),
-        false,
-        true
-    );
+    if($_SERVER['REQUEST_URI'] == '/confirm-order/'){
 
-    wp_localize_script( 
-        'scripts-checkout-ehtl',
-        'wp_ajax_ehtl_checkout',
-        array( 
-            'ajaxurl' => admin_url( 'admin-ajax.php' ),
-            'dede' => 1234
-        )                 
-    ); 
+	    wp_enqueue_script( 
+	        'scripts-checkout-ehtl',
+	        plugin_dir_url( __FILE__ ) . 'includes/assets/js/scripts-checkout.js?v='.date("dmYHis"),
+	        array( 'jquery' ),
+	        false,
+	        true
+	    );
+
+	    wp_localize_script( 
+	        'scripts-checkout-ehtl',
+	        'wp_ajax_ehtl_checkout',
+	        array( 
+	            'ajaxurl' => admin_url( 'admin-ajax.php' ),
+	            'dede' => 1234
+	        )                 
+	    ); 
+
+	}
 } 
 
 add_action( 'admin_enqueue_scripts', 'enqueue_scripts_admin_ehtl' ); 
@@ -1371,11 +1375,8 @@ function shortcode_motor_reserva(){
 		</div>
 	</section> ';
 
-	$retorno .= '<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	$retorno .= '<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-	<script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
-	<script src="https://www.jqueryscript.net/demo/Customizable-Animated-Dropdown-Plugin-with-jQuery-CSS3-Nice-Select/js/jquery.nice-select.js"></script>
 	<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment-with-locales.min.js"></script>';
 
 	return $retorno;
