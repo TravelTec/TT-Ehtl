@@ -121,7 +121,7 @@ function set_rooms(){
 
 					retorno += '<p class="guest">Adulto '+count_adt+'</p>  '; 
 					retorno += '<div class="row"> ';
-						retorno += '<div class="col-lg-6 col-12"> ';
+						retorno += '<div class="col-lg-4 col-12"> ';
 							retorno += '<label>Nome</label> ';
 							retorno += '<div class="input-group mb-4"> ';
 							  	retorno += '<div class="input-group-prepend"> ';
@@ -130,7 +130,7 @@ function set_rooms(){
 							  	retorno += '<input type="text" id="nome_adt_'+i+'_'+adt+'" class="form-control" placeholder="" aria-label="Insira seu nome" aria-describedby="basic-addon1"> ';
 							retorno += '</div> ';
 						retorno += '</div> ';
-						retorno += '<div class="col-lg-6 col-12"> ';
+						retorno += '<div class="col-lg-4 col-12"> ';
 							retorno += '<label>Sobrenome</label> ';
 							retorno += '<div class="input-group mb-4"> ';
 							  	retorno += '<div class="input-group-prepend"> ';
@@ -138,17 +138,8 @@ function set_rooms(){
 							  	retorno += '</div> ';
 							  	retorno += '<input type="text" id="sobrenome_adt_'+i+'_'+adt+'" class="form-control" placeholder="" aria-label="Insira seu nome" aria-describedby="basic-addon1"> ';
 							retorno += '</div> ';
-						retorno += '</div> ';
-						retorno += '<div class="col-lg-6 col-12"> ';
-							retorno += '<label>E-mail</label> ';
-							retorno += '<div class="input-group mb-4"> ';
-							  	retorno += '<div class="input-group-prepend"> ';
-							    	retorno += '<i class="fa fa-envelope"></i> ';
-							  	retorno += '</div> ';
-							  	retorno += '<input type="text" id="email_adt_'+i+'_'+adt+'" class="form-control" placeholder="" aria-label="Insira seu nome" aria-describedby="basic-addon1"> ';
-							retorno += '</div> ';
-						retorno += '</div> ';
-						retorno += '<div class="col-lg-6 col-12"> ';
+						retorno += '</div> '; 
+						retorno += '<div class="col-lg-4 col-12"> ';
 							retorno += '<label>Nascimento</label> ';
 							retorno += '<div class="input-group mb-4"> ';
 							  	retorno += '<div class="input-group-prepend"> ';
@@ -167,7 +158,7 @@ function set_rooms(){
 
 						retorno += '<p class="guest">Criança '+count_chd+'</p>  '; 
 						retorno += '<div class="row"> ';
-							retorno += '<div class="col-lg-6 col-12"> ';
+							retorno += '<div class="col-lg-4 col-12"> ';
 								retorno += '<label>Nome</label> ';
 								retorno += '<div class="input-group mb-4"> ';
 								  	retorno += '<div class="input-group-prepend"> ';
@@ -176,7 +167,7 @@ function set_rooms(){
 								  	retorno += '<input type="text" id="nome_chd_'+i+'_'+chd+'" class="form-control" placeholder="" aria-label="Insira seu nome" aria-describedby="basic-addon1"> ';
 								retorno += '</div> ';
 							retorno += '</div> ';
-							retorno += '<div class="col-lg-6 col-12"> ';
+							retorno += '<div class="col-lg-4 col-12"> ';
 								retorno += '<label>Sobrenome</label> ';
 								retorno += '<div class="input-group mb-4"> ';
 								  	retorno += '<div class="input-group-prepend"> ';
@@ -184,17 +175,8 @@ function set_rooms(){
 								  	retorno += '</div> ';
 								  	retorno += '<input type="text" id="sobrenome_chd_'+i+'_'+chd+'" class="form-control" placeholder="" aria-label="Insira seu nome" aria-describedby="basic-addon1"> ';
 								retorno += '</div> ';
-							retorno += '</div> ';
-							retorno += '<div class="col-lg-6 col-12"> ';
-								retorno += '<label>E-mail</label> ';
-								retorno += '<div class="input-group mb-4"> ';
-								  	retorno += '<div class="input-group-prepend"> ';
-								    	retorno += '<i class="fa fa-envelope"></i> ';
-								  	retorno += '</div> ';
-								  	retorno += '<input type="text" id="email_chd_'+i+'_'+chd+'" class="form-control" placeholder="" aria-label="Insira seu nome" aria-describedby="basic-addon1"> ';
-								retorno += '</div> ';
-							retorno += '</div> ';
-							retorno += '<div class="col-lg-6 col-12"> ';
+							retorno += '</div> '; 
+							retorno += '<div class="col-lg-4 col-12"> ';
 								retorno += '<label>Nascimento</label> ';
 								retorno += '<div class="input-group mb-4"> ';
 								  	retorno += '<div class="input-group-prepend"> ';
@@ -389,7 +371,7 @@ function send_order(type_reserva){
 
 			var nomepax = jQuery("#nome_adt_"+i+"_"+adt).val();
 			var sobrenomepax = jQuery("#sobrenome_adt_"+i+"_"+adt).val();
-			var emailpax = jQuery("#email_adt_"+i+"_"+adt).val();
+			var emailpax = jQuery("#emailTitular").val();
 			var nascpax = jQuery("#nasc_adt_"+i+"_"+adt).val();
 
 			if(nomepax == ""){
@@ -401,12 +383,6 @@ function send_order(type_reserva){
 			}else if(sobrenomepax == ""){
 				swal({
 		            title: "É necessário preencher o sobrenome do pax.",
-		            icon: "warning",
-		        }); 
-		        return false;
-			}else if(emailpax == ""){
-				swal({
-		            title: "É necessário preencher o e-mail do pax.",
 		            icon: "warning",
 		        }); 
 		        return false;
@@ -432,7 +408,7 @@ function send_order(type_reserva){
 
 				var nomepax = jQuery("#nome_chd_"+i+"_"+chd).val();
 				var sobrenomepax = jQuery("#sobrenome_chd_"+i+"_"+chd).val();
-				var emailpax = jQuery("#email_chd_"+i+"_"+chd).val();
+				var emailpax = jQuery("#emailTitular").val();
 				var nascpax = jQuery("#nasc_chd_"+i+"_"+chd).val();
 
 				if(nomepax == ""){
@@ -444,12 +420,6 @@ function send_order(type_reserva){
 				}else if(sobrenomepax == ""){
 					swal({
 			            title: "É necessário preencher o sobrenome do pax.",
-			            icon: "warning",
-			        }); 
-			        return false;
-				}else if(emailpax == ""){
-					swal({
-			            title: "É necessário preencher o e-mail do pax.",
 			            icon: "warning",
 			        }); 
 			        return false;
@@ -474,13 +444,53 @@ function send_order(type_reserva){
 
 	}); 
 
-	var cep = jQuery("#cep").val().replace("-", "");
-	var endereco = jQuery("#endereco").val();
-	var numero = jQuery("#numero").val();
-	var complemento = jQuery("#complemento").val();
-	var bairro = jQuery("#bairro").val();
-	var cidade = jQuery("#cidade").val();
-	var estado = jQuery("#estado").val();
+	if(type_reserva == 2){
+		var cep = jQuery("#cep").val().replace("-", "");
+		var endereco = jQuery("#endereco").val();
+		var numero = jQuery("#numero").val();
+		var complemento = jQuery("#complemento").val();
+		var bairro = jQuery("#bairro").val();
+		var cidade = jQuery("#cidade").val();
+		var estado = jQuery("#estado").val();
+
+		if(cep == ""){
+	        swal({
+	            title: "É necessário preencher o CEP.",
+	            icon: "warning",
+	        }); 
+	        return false;
+	    }else if(endereco == ""){
+	        swal({
+	            title: "É necessário preencher o endereço.",
+	            icon: "warning",
+	        }); 
+	        return false;
+	    }else if(numero == ""){
+	        swal({
+	            title: "É necessário preencher o número.",
+	            icon: "warning",
+	        }); 
+	        return false;
+	    }else if(bairro == ""){
+	        swal({
+	            title: "É necessário preencher o bairro.",
+	            icon: "warning",
+	        }); 
+	        return false;
+	    }else if(cidade == ""){
+	        swal({
+	            title: "É necessário preencher a cidade.",
+	            icon: "warning",
+	        }); 
+	        return false;
+	    }else if(estado == ""){
+	        swal({
+	            title: "É necessário preencher o estado.",
+	            icon: "warning",
+	        }); 
+	        return false;
+	    }
+	}
 
 	var nameReserva = nomeTitular.split(" "); 
 
@@ -505,42 +515,6 @@ function send_order(type_reserva){
     }else if(cpfTitular == ""){
         swal({
             title: "É necessário preencher o CPF do titular da reserva.",
-            icon: "warning",
-        }); 
-        return false;
-    }else if(cep == ""){
-        swal({
-            title: "É necessário preencher o CEP.",
-            icon: "warning",
-        }); 
-        return false;
-    }else if(endereco == ""){
-        swal({
-            title: "É necessário preencher o endereço.",
-            icon: "warning",
-        }); 
-        return false;
-    }else if(numero == ""){
-        swal({
-            title: "É necessário preencher o número.",
-            icon: "warning",
-        }); 
-        return false;
-    }else if(bairro == ""){
-        swal({
-            title: "É necessário preencher o bairro.",
-            icon: "warning",
-        }); 
-        return false;
-    }else if(cidade == ""){
-        swal({
-            title: "É necessário preencher a cidade.",
-            icon: "warning",
-        }); 
-        return false;
-    }else if(estado == ""){
-        swal({
-            title: "É necessário preencher o estado.",
             icon: "warning",
         }); 
         return false;
