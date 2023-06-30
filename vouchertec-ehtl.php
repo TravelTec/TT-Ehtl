@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 	Description: Voucher Tec - Integração de hotéis E-htl é um plugin desenvolvido para agências e operadoras de turismo que precisam tratar diárias de hospedagem de fornecedores, com integração ao fornecedor E-htl.
 
-	Version: 1.1.9
+	Version: 1.1.10
 
 	Author: Travel Tec
 
@@ -11236,7 +11236,11 @@ if(empty($check_page_exist)) {
 
 	  				<p style="font-size:17px;line-height: 1.8">Use o shortcode <span class="text-line">[TTBOOKING_MOTOR_RESERVA]</span>  <button onclick="copy('[TTBOOKING_MOTOR_RESERVA]','#copy_button_1')" id="copy_button_1" class="btn btn-sm btn-primary copy-button" data-toggle="tolltip" data-placement="top" tilte="Copiar shortcode">Copiar</button> para adicionar o motor de reserva em qualquer página.</p>
 
+					<?php if ( (shortcode_exists( 'TTBOOKING_MOTOR_RESERVA_FLIGHTS' ) && shortcode_exists( 'TTBOOKING_MOTOR_RESERVA' ) ) || (shortcode_exists( 'TTBOOKING_MOTOR_RESERVA' ) && shortcode_exists( 'TTBOOKING_MOTOR_RESERVA_CARS' ) ) ){ ?>
 
+
+                        <p style="font-size:17px;line-height: 1.8">Use o shortcode <span class="text-line">[TTBOOKING_ALL_SERVICES]</span>  <button onclick="copy('[TTBOOKING_ALL_SERVICES]','#copy_button_2')" id="copy_button_2" class="btn btn-sm btn-primary copy-button" data-toggle="tolltip" data-placement="top" tilte="Copiar shortcode">Copiar</button> para adicionar o motor de reserva com todos os serviços em qualquer página.</p>
+                    <?php } ?>
 
 	  			</div>
 
@@ -11513,21 +11517,13 @@ if(empty($check_page_exist)) {
 
 
 			function copy(text, target) {
+				navigator.clipboard.writeText(text);
 
-				navigator.clipboard.writeText('[TTBOOKING_MOTOR_RESERVA]');
-
-
-
-				jQuery("#copy_button_1").attr('title', 'Copiado!').tooltip('_fixTitle').tooltip('show');
-
-
+				jQuery(target).attr('title', 'Copiado!').tooltip('_fixTitle').tooltip('show');
 
 				setTimeout(function() {
-
-					jQuery("#copy_button_1").attr('title', 'Copiar shortcode').tooltip('_fixTitle').tooltip('show');
-
+					jQuery(target).attr('title', 'Copiar shortcode').tooltip('_fixTitle').tooltip('show');
 				}, 800);
-
 			}
 
 		</script>
