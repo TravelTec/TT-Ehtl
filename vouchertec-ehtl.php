@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 	Description: Voucher Tec - Integração de hotéis E-htl é um plugin desenvolvido para agências e operadoras de turismo que precisam tratar diárias de hospedagem de fornecedores, com integração ao fornecedor E-htl.
 
-	Version: 1.1.7
+	Version: 1.1.8
 
 	Author: Travel Tec
 
@@ -11591,3 +11591,28 @@ if(empty($check_page_exist)) {
 		update_option('chave_licenca_ehtl', $licenca);
 
     }
+
+/* ***************************************** */
+		/* FUNÇÃO PARA O MOTOR COM TODOS OS SERVIÇOS */
+		/* VERIFICA SE O PLUGIN GERAL DE SHORTCODE ESTÁ ATIVO */
+		/* SE NÃO, PEDE PRA INSTALAR */
+		/* SE SIM, PROSSEGUE */
+		/* Plugin criado para evitar duplicação de código e gerenciar o motor com todos os serviços em um só lugar */
+		add_action( 'admin_init', 'hotel_plugin_has_parents' );
+		function hotel_plugin_has_parents() {
+			if (is_admin() && current_user_can('activate_plugins') && !is_plugin_active('TT-Helpers-1.0.0/helpers.php')){
+
+			    add_action( 'admin_notices', 'hotel_plugin_notice' );
+
+			    deactivate_plugins( plugin_basename( __FILE__) );
+			    if ( isset( $_GET['activate'] ) ) {
+			      	unset( $_GET['activate'] );
+			    }
+			}
+		}
+		function hotel_plugin_notice() { ?>
+			<div class="error">
+				<p>O plugin <strong>Vouchertec - Integração de hotéis</strong> precisa que o plugin <strong>Vouchertec - Shortcode</strong> esteja instalado e ativo para funcionar corretamente. Você pode fazer o download através <a href="https://github.com/TravelTec/TT-Helpers/archive/refs/tags/1.0.0.zip" target="_blank">deste link</a>. </p>
+			</div>
+		<?php }
+		/* ***************************************** */
