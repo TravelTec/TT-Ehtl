@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 	Description: Voucher Tec - Integração de hotéis E-htl é um plugin desenvolvido para agências e operadoras de turismo que precisam tratar diárias de hospedagem de fornecedores, com integração ao fornecedor E-htl.
 
-	Version: 1.1.8
+	Version: 1.1.9
 
 	Author: Travel Tec
 
