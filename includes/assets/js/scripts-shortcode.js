@@ -64,11 +64,11 @@ function qtySumHotel(){
     var qtd_adt = 0;
     var qtd_chd = 0;
     for(var i=1; i<7; i++){
-        qtd_adt += parseInt(jQuery("#panel"+i+"adtHotel .qtyAdtHotel input").val());
-        qtd_chd += parseInt(jQuery("#panel"+i+"chdHotel .qtyChdHotel input").val());
-    }
-    jQuery("#adultos").val(qtd_adt);
-    jQuery("#criancas").val(qtd_chd);
+        qtd_adt += parseInt(jQuery("#panel"+i+"adtHotel").val());
+        qtd_chd += parseInt(jQuery("#panel"+i+"chdHotel").val());
+    } 
+    jQuery("#adultosHotel").val(qtd_adt);
+    jQuery("#criancasHotel").val(qtd_chd);
 } 
 
 var url_atual = window.location.href;
@@ -144,7 +144,7 @@ jQuery(function() {
         var oldValue = jQuerybutton.parent().find("input").val();  
 
         if (jQuerybutton.hasClass('qtyIncHotel')) {
-            var newVal = parseFloat(oldValue) + 1; 
+            var newVal = parseFloat(oldValue) + 1;  
 
             if (newVal > 4) {
                 newVal = 4;
@@ -177,9 +177,9 @@ jQuery(function() {
                 var currentPanel = jQuery(this).parents('div[class^="panel"]').eq(0)[0].className;
  
                 jQuery("#"+currentPanel+" .idade_chd"+(oldValue == 0 ? 1 : oldValue)).attr("style", "display:none");
-                jQuery("#"+currentPanel+" #"+currentPanel+"adtHotel").val(newVal);
+                jQuery("#"+currentPanel+" #"+currentPanel+"ChdHotel").val(newVal);
             } 
-        } 
+        }  
 
         jQuerybutton.parent().find("input").val(newVal);
         qtySumHotel();
@@ -205,16 +205,25 @@ function add_room(){
     for(var i=1; i<7; i++){
         jQuery(".btnRemoverQuarto"+i).attr("style", "display:none;");
     }
-    qtySum();
+    if(jQuery("#type_motor").val() == 3){ 
+        qtySumHotel();
+        jQuery(".qtyTotalHotel").addClass("rotate-x");
+        jQuery(".qtyRoomHotel").addClass("rotate-x"); 
+    }else{ 
+        qtySum();
+        jQuery(".qtyTotal").addClass("rotate-x");
+        jQuery(".qtyRoom").addClass("rotate-x");
+    } 
 
-    jQuery(".qtyTotal").addClass("rotate-x");
-
-    jQuery(".qtyRoom").addClass("rotate-x");
     var url_atual = window.location.href;
     if(url_atual.indexOf("/hotels/") != -1){
         jQuery(".qtyRoom").html(qtd_room_add+' '+(qtd_room_add > 1 ? 'quartos' : 'quarto'));
     }else{
-        jQuery(".qtyRoom").html(qtd_room_add);
+        if(jQuery("#type_motor").val() == 3){ 
+            jQuery(".qtyRoomHotel").html(qtd_room_add);
+        }else{
+            jQuery(".qtyRoom").html(qtd_room_add);
+        }
     }
 
     jQuery(".btnRemoverQuarto"+qtd_room_add).attr("style", "float: right;padding: 0;");
@@ -224,8 +233,9 @@ function add_room(){
     if(qtd_room_add == 6){
         jQuery(".spanButtonAddRoom").attr("style", "display:none");
     }
-
-    jQuery("#adultos").val(jQuery("#panel"+qtd_room_add+" .qtyAdt input").val());
+    if(jQuery("#type_motor").val() == 3){ 
+        jQuery("#adultos").val(jQuery("#panel"+qtd_room_add+" .qtyAdt input").val());
+    }
 }
 
 function remove_room(id){
@@ -240,7 +250,11 @@ function remove_room(id){
     jQuery("#panel"+qtd_room_add+" .qtyAdt input").val(0);
     jQuery("#panel"+qtd_room_add+" .qtyChd input").val(0);
     jQuery("#panel"+qtd_room_add+"qts").val(0);
-    qtySum();
+    if(jQuery("#type_motor").val() == 3){ 
+        qtySumHotel();
+    }else{ 
+        qtySum();
+    }
     jQuery(".qtyTotal").addClass("rotate-x");
     jQuery(".qtyRoom").addClass("rotate-x");
 
@@ -649,6 +663,13 @@ function search_results_hotel(){
     jQuery(".ripple").html('<img src="https://media.tenor.com/images/a742721ea2075bc3956a2ff62c9bfeef/tenor.gif" style="height: 20px;margin-right: 0px;padding: 0px 10px;position: absolute;margin-left: 4px;"> <span style="margin-left:18px">Buscando... </span>');
     jQuery("button.ripple").attr("disabled", "disabled");
     jQuery("button.ripple").prop("disabled", true);
+    if(jQuery("#type_motor").val() == 3){ 
+        var adt = jQuery("#adultosHotel").val();
+        var chd = jQuery("#criancasHotel").val();
+    }else{
+        var adt = jQuery("#adultos").val();
+        var chd = jQuery("#criancas").val();
+    }
 
     if(jQuery("#field_name_ehtl").val() == ""){
 
@@ -680,7 +701,7 @@ function search_results_hotel(){
         }); 
         return false;
 
-    }else if(jQuery("#adultos").val() < 1){
+    }else if(adt < 1){
 
         jQuery(".ripple").html('<span>Buscar </span>');
         jQuery(".ripple").removeAttr("disabled");
@@ -694,8 +715,6 @@ function search_results_hotel(){
 
         var checkin = jQuery("#field_date_checkin_ehtl").val();
         var checkout = jQuery("#field_date_checkout_ehtl").val();
-        var adt = jQuery("#adultos").val();
-        var chd = jQuery("#criancas").val();
 
         for(var i = 1; i <= chd; i++){
             localStorage.setItem("IDADE_CHD_EHTL"+i, 5);
